@@ -6,10 +6,9 @@ const decrease = function() {
         clearInterval(countdown);
     }
 };
-//const countdown = setInterval(decrease, 1000);
-//countdown;
-let timerValue = (timerDisplay.textContent)*1000
 
+timerDisplay.textContent = '00:00:59';
+let timerValue = (timerDisplay.textContent.split(':').pop() - 1)*1000;
 
 const decrease1 = function() {
 
@@ -23,7 +22,6 @@ const decrease1 = function() {
     alert('Вы победили в конкурсе!');
     clearInterval(countdown);
   }
-  console.log(timer1)
 }
 
 const countdown = setInterval(decrease1, 1000);

@@ -6,19 +6,25 @@ holes.forEach(element => {
     if (element.className.includes( 'hole_has-mole' )) {
       document.getElementById("dead").textContent++;
       countHit++;
-      console.log()
     }
     else {
       document.getElementById("lost").textContent++;
       countMiss++;
     }
-    if (countMiss === 10 || countHit === 5) {
+    if (countHit === 5) {
       countMiss = 0;
       countHit = 0;
       document.getElementById("dead").textContent = 0;
       document.getElementById("lost").textContent = 0;
+      return alert('Вы выиграли!');
     }
-    console.log(countHit, countMiss)
+    if (countMiss === 10) {
+      countMiss = 0;
+      countHit = 0; 
+      document.getElementById("dead").textContent = 0;
+      document.getElementById("lost").textContent = 0;
+      return alert('Вы проиграли!')
+    }
     }
 });
-    console.log(countHit, countMiss)
+    
