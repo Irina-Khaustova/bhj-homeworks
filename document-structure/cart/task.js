@@ -14,7 +14,7 @@ quantityControl.forEach((elem) => {
             }
         }
         else if (elem.classList.contains("product__quantity-control_inc")) {
-          product.querySelector(".product__quantity-value").textContent += 1;
+          product.querySelector(".product__quantity-value").textContent ++;
         }
     }
 })

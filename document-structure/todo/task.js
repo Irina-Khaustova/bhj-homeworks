@@ -6,18 +6,17 @@ let creatingMessage = function (e) {
     
     if (e.key === 'Enter' && inputMessage.value) {
 
-  let newMessage = document.createElement('div');
-  newMessage.classList.add("task");
-  console.log(newMessage)
-  newMessage.innerHTML = `<div class="task__title">${inputMessage.value}</div>
-<a href="#" class="task__remove">&times;</a>
-</div>`
+      let newMessage = document.createElement('div');
+      newMessage.classList.add("task");
+      console.log(newMessage)
+      newMessage.innerHTML = `<div class="task__title">${inputMessage.value}</div>
+      <a href="#" class="task__remove">&times;</a>
+      </div>`
 
+      //tasksList.innerHTML += newMessage;
+      tasksList.appendChild(newMessage);
 
-//tasksList.innerHTML += newMessage;
-body.appendChild(newMessage);
-
-}
+    }
 }
 inputMessage.addEventListener("keyup", creatingMessage);
 console.log(tasksList)
