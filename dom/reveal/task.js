@@ -1,22 +1,17 @@
 const blocks = Array.from(document.querySelectorAll(".reveal"));
-//const blockCoordinates = .getBoundingClientRect().top;
-const visibleArea = window.innerHeight;
-//console.log(document.getBoundingClientRect().top);
-console.log(blocks)
 
-function isInViewport(elem) {
-    console.log(elem.getBoundingClientRect().top);
-    console.log(window.innerHeight);
-  if (150 < elem.getBoundingClientRect().top && elem.getBoundingClientRect().top < (1.5 * window.innerHeight)) {
-      console.log("да");
-      return elem.classList.add("reveal_active");
-  } else {
-    return elem.classList.remove("reveal_active");
-    console.log("нет");
-  };
+function isInViewport() {
+
+  blocks.forEach( (element) => {
+
+    const blockCoordinates = element.getBoundingClientRect().top;
+    if (150 < blockCoordinates && blockCoordinates < (1.5 * window.innerHeight)) {
+      return element.classList.add("reveal_active");
+    } else {
+      return element.classList.remove("reveal_active");
+    };
+  });
 };
 
-blocks.forEach((element) => {
-    element.onscroll = isInViewport(element);
-});
+document.addEventListener('scroll', isInViewport);
 

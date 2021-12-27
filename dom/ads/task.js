@@ -1,7 +1,8 @@
 const rotators = Array.from(document.querySelectorAll(".rotator"));
+let timer = 0;
 
 rotators.forEach(element => {
-  let timer = 0;
+  //let timer = 0;
   const rotatorCases = Array.from(element.querySelectorAll(".rotator__case"));
  
   let indexActiveCase = rotatorCases.indexOf(element.querySelector(".rotator__case_active"));
@@ -15,14 +16,14 @@ rotators.forEach(element => {
     }
     else {
       indexActiveCase++;
-    }
+    };
 
     activeCase = rotatorCases[indexActiveCase];
     activeCase.classList.add('rotator__case_active');
     
     rotatorCases.forEach(elem => {
       timer = elem.dataset.speed;
-      console.log(elem.dataset.color)
+      console.log(elem.dataset.speed)
       elem.style.color = elem.dataset.color; 
   });
 
