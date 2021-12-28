@@ -72,13 +72,13 @@ class Autocomplete {
     console.log(typeof (this.input.options))
     const options = Array.from(this.input.options);
     const optionArray = [];
-    console.log(options[0]);
+    
     for (let i = 0; i < options.length; i++) {
+      if (options[i].textContent.includes(text)) {
       optionArray.push({text: options[i].textContent, value: options[i].value})
+      }
     }
-
     return optionArray
-    console.log(optionArray);
 
     /*
       TODO: этот метод нужно дописать

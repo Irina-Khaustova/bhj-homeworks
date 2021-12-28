@@ -5,10 +5,9 @@ allInterests.forEach( (elem) => {
 
   function checkedElement () {
    
-    if (elem.parentElement.nextElementSibling.querySelectorAll(".interest__check")) {
+    if (elem.closest(".interests_active") === null) {
       
-      const child = Array.from(elem.parentElement.nextElementSibling.querySelectorAll(".interest__check"));
-      console.log(elem.parentElement.nextElementSibling.querySelectorAll(".interest__check"))
+      const child = Array.from(elem.closest(".interest").querySelectorAll(".interest__check"));
   
       child.forEach( element => {
         if (elem.checked === true) {
@@ -21,5 +20,3 @@ allInterests.forEach( (elem) => {
 }
 elem.addEventListener ('click', checkedElement)
 })
-
-
