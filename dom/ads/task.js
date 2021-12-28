@@ -1,14 +1,18 @@
 const rotators = Array.from(document.querySelectorAll(".rotator"));
-let timer = 0;
 
 rotators.forEach(element => {
-  //let timer = 0;
+  let timer = 0;
   const rotatorCases = Array.from(element.querySelectorAll(".rotator__case"));
+
+  rotatorCases.forEach(elem => {
+
+      elem.style.color = elem.dataset.color; 
+  });
  
   let indexActiveCase = rotatorCases.indexOf(element.querySelector(".rotator__case_active"));
   let activeCase = element.querySelector(".rotator__case_active");
  
-  const changer = function () {
+  let endlessChanger = setTimeout(function changer() {
   
     activeCase.classList.remove('rotator__case_active');
     if (indexActiveCase === rotatorCases.length - 1) {
@@ -20,14 +24,7 @@ rotators.forEach(element => {
 
     activeCase = rotatorCases[indexActiveCase];
     activeCase.classList.add('rotator__case_active');
-    
-    rotatorCases.forEach(elem => {
-      timer = elem.dataset.speed;
-      console.log(elem.dataset.speed)
-      elem.style.color = elem.dataset.color; 
-  });
-
-  };
-  console.log(timer)
-  const endlessСhanger = setInterval (changer, timer);
-});
+    timer = activeCase.dataset.speed;
+    endlessChanger = setTimeout(changer, timer)
+ }, timer)
+})
