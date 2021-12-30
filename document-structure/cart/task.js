@@ -8,16 +8,16 @@ quantityControl.forEach((elem) => {
 
     elem.onclick = function () {
 
-        if (elem.classList.contains("product__quantity-control_dec")) {
-            if (product.querySelector(".product__quantity-value").textContent >= 1) {
+      if (elem.classList.contains("product__quantity-control_dec")) {
+        if (product.querySelector(".product__quantity-value").textContent >= 2) {
           product.querySelector(".product__quantity-value").textContent -= 1;
-            }
         }
-        else if (elem.classList.contains("product__quantity-control_inc")) {
-          product.querySelector(".product__quantity-value").textContent ++;
-        }
-    }
-})
+      }
+      else if (elem.classList.contains("product__quantity-control_inc")) {
+        product.querySelector(".product__quantity-value").textContent ++;
+      }
+    };
+});
 
 function createCart(a) {
 
@@ -34,34 +34,23 @@ function createCart(a) {
   newCart.appendChild(newCartCount);
   document.querySelector(".cart__products").appendChild(newCart)
   console.log(document.querySelector(".cart__products"))
-}
+};
 
 
 carts.forEach (element => {
 
   const product = element.closest(".product")
-  console.log(product)
-
+  
   element.onclick = function () {
 
     let cartProduct = Array.from(document.querySelectorAll(".cart__product"));
-    console.log(cartProduct)
-    //console.log(cartProduct[0].dataset.id)
-    console.log(product.dataset.id)
-    const findCart = cartProduct.findIndex(elem2 => {
- 
-    elem2.dataset.id == product.dataset.id
-    })
-    console.log(findCart)
-    if (findCart === -1) {
+    const findCart = cartProduct.findIndex(elem2 => elem2.dataset.id == product.dataset.id);
     
-      console.log(cartProduct)
+    if (findCart === -1) {
       return createCart(product)
     }
     else {
-        cartProduct[findCart].querySelector(".cart__product-count").textContent = productCart.querySelector(".product__quantity-value").textContent;
-    }
-console.log()
-
-  }
-})
+      cartProduct[findCart].querySelector(".cart__product-count").textContent = product.querySelector(".product__quantity-value").textContent;
+    };
+  };
+});
